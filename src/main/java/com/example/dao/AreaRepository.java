@@ -1,18 +1,8 @@
 package com.example.dao;
 
 import com.example.model.TblArea;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-public interface AreaRepository {
-	
-	/**
-	 * get Area information by postcode
-	 *
-	 * @param  postCode postcode;
-	 * @return TblArea
-	 */
-	List<TblArea> searchAreaByPostCode(String postCode);
+public interface AreaRepository extends JpaRepository<TblArea, Integer>, AreaRepositoryCustom {
 	
 }

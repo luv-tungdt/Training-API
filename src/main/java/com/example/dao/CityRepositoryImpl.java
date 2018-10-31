@@ -3,12 +3,10 @@ package com.example.dao;
 import com.example.model.TblCity;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-@Repository
-public class CityRepositoryImpl implements CityRepository {
+public class CityRepositoryImpl implements CityRepositoryCustom {
 	
 	@Autowired
 	private EntityManager entityManager;

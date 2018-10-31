@@ -12,7 +12,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "tbl_area")
-public class TblArea implements Serializable{
+public class TblArea implements Serializable {
 	
 	@Id
 	@Column(name = "area_id")
@@ -23,7 +23,6 @@ public class TblArea implements Serializable{
 	private String areaKana;
 	
 	@Column(name = "area")
-	
 	private String area;
 	
 	@ManyToOne
@@ -31,15 +30,12 @@ public class TblArea implements Serializable{
 	private TblCity tblCity;
 	
 	@Column(name = "chome_area")
-	
 	private int chomeArea;
 	
 	@Column(name = "koaza_area")
-	
 	private int koazaArea;
 	
 	@Column(name = "multi_post_area")
-	
 	private int multiPostArea;
 	
 	@ManyToOne

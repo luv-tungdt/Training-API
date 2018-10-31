@@ -13,9 +13,8 @@ public class TblOldPost {
 	
 	@Id
 	@Column(name = "old_post_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private int oldPostId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int oldPostId;
 	
 	@Column(name = "old_post_code")
 	private String oldPostCode;

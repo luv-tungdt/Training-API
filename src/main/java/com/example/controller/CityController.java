@@ -35,7 +35,7 @@ public class CityController {
 	@RequestMapping(value = "/post_offices/prefectures/{prefectureCode}", method = RequestMethod.GET)
 	public ResponseEntity searchByPrefectureCode(@PathVariable("prefectureCode") String prefectureCode) {
 		if (Common.checkNumber(prefectureCode) == false) {
-			return new ResponseEntity<>(ResponseError.error_1(), HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(ResponseError.error_1(), HttpStatus.BAD_REQUEST);
 		}
 		List<TblCity> cityList = cityService.searchCityByPrefectureCode(Common.replaceData(prefectureCode));
 		if (cityList.size() == Constant.MIN_SIZE) {
@@ -43,7 +43,7 @@ public class CityController {
 		} else if (cityList.size() > Constant.MIN_SIZE) {
 			return new ResponseEntity<>(new RestData(getListResponseFromCity(cityList)), HttpStatus.OK);
 		}
-		return new ResponseEntity<>(ResponseError.error_3(), HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(ResponseError.error_3(), HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	}
 	

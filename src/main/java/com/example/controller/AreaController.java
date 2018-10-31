@@ -35,7 +35,7 @@ public class AreaController {
 	@RequestMapping(value = "/post_offices/post/{postcode}", method = RequestMethod.GET)
 	public ResponseEntity searchByPostCode(@PathVariable("postcode") String postcode) {
 		if (Common.checkNumber(Common.replaceData(postcode)) == false) {
-			return new ResponseEntity<>(ResponseError.error_1(), HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(ResponseError.error_1(), HttpStatus.BAD_REQUEST);
 		}
 		List<TblArea> areaList = areaService.searchAreaByPostCode(Common.replaceData(postcode));
 		if (areaList.size() == Constant.MIN_SIZE) {
@@ -43,7 +43,7 @@ public class AreaController {
 		} else if (areaList.size() > Constant.MIN_SIZE) {
 			return new ResponseEntity<>(new RestData(getListResponseFromArea(areaList)), HttpStatus.OK);
 		}
-		return new ResponseEntity<>(ResponseError.error_3(), HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(ResponseError.error_3(), HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	}
 	

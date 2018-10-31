@@ -10,13 +10,13 @@ import java.util.List;
 
 @Service
 public class AreaServiceImpl implements AreaService {
-
-    @Autowired
-    private AreaRepository areaRepo;
-
-
-    @Override
-    public List<TblArea> searchAreaByPostCode(String postCode) {
-        return areaRepo.searchAreaByPostCode(postCode);
-    }
+	
+	@Autowired
+	private AreaRepository areaRepo;
+	
+	
+	@Override
+	public List<TblArea> searchAreaByPostCode(String postCode) {
+		return areaRepo.searchAreaByPostCode(postCode);
+	}
 }

@@ -13,8 +13,8 @@ public class TblPrefecture {
 	
 	@Id
 	@Column(name = "prefecture_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int prefectureId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int prefectureId;
 	
 	@Column(name = "prefecture_kana")
 	private String prefectureKana;
@@ -29,8 +29,7 @@ public class TblPrefecture {
 	public TblPrefecture() {
 	}
 	
-	public TblPrefecture(int prefectureId, String prefectureKana, String prefecture, String prefectureCode) {
-		this.prefectureId = prefectureId;
+	public TblPrefecture(String prefectureKana, String prefecture, String prefectureCode) {
 		this.prefectureKana = prefectureKana;
 		this.prefecture = prefecture;
 		this.prefectureCode = prefectureCode;

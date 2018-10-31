@@ -25,7 +25,7 @@ public class SearchByPostCodeResponse {
 	private String postCode;
 	
 	@JsonProperty("prefecture_kana")
-
+	
 	private String prefectureKana;
 	
 	@JsonProperty("city_kana")
@@ -64,27 +64,27 @@ public class SearchByPostCodeResponse {
 	
 	private int prefectureCode;
 	
-
-    public SearchByPostCodeResponse(TblArea tblArea) {
-        this.code = tblArea.getTblCity().getCode();
-        this.prefecture = tblArea.getTblCity().getTblPrefecture().getPrefecture();
-        this.city = tblArea.getTblCity().getCity();
-        this.area = tblArea.getArea();
-        this.oldPostCode = tblArea.getTblOldPost().getOldPostCode();
-        this.postCode = tblArea.getTblPost().getPostCode();
-        this.prefectureKana = tblArea.getTblCity().getTblPrefecture().getPrefectureKana();
-        this.cityKana = tblArea.getTblCity().getCityKana();
-        this.areaKana = tblArea.getAreaKana();
-        this.multiArea = multiArea;
-        this.koazaArea = koazaArea;
-        this.chomeArea = chomeArea;
-        this.multiPostArea = multiPostArea;
-        this.updateShow = updateShow;
-        this.changeReason = changeReason;
-        this.prefectureCode = prefectureCode;
-    }
-
-    public String getCode() {
+	
+	public SearchByPostCodeResponse(TblArea tblArea) {
+		this.code = tblArea.getTblCity().getCode();
+		this.prefecture = tblArea.getTblCity().getTblPrefecture().getPrefecture();
+		this.city = tblArea.getTblCity().getCity();
+		this.area = tblArea.getArea();
+		this.oldPostCode = tblArea.getTblOldPost().getOldPostCode();
+		this.postCode = tblArea.getTblPost().getPostCode();
+		this.prefectureKana = tblArea.getTblCity().getTblPrefecture().getPrefectureKana();
+		this.cityKana = tblArea.getTblCity().getCityKana();
+		this.areaKana = tblArea.getAreaKana();
+		this.multiArea = multiArea;
+		this.koazaArea = koazaArea;
+		this.chomeArea = chomeArea;
+		this.multiPostArea = multiPostArea;
+		this.updateShow = updateShow;
+		this.changeReason = changeReason;
+		this.prefectureCode = prefectureCode;
+	}
+	
+	public String getCode() {
 		return code;
 	}
 	

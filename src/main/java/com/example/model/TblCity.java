@@ -20,15 +20,12 @@ public class TblCity implements Serializable {
 	private int cityId;
 	
 	@Column(name = "code")
-	
 	private String code;
 	
 	@Column(name = "city_kana")
-	
 	private String cityKana;
 	
 	@Column(name = "city")
-	
 	private String city;
 	
 	@ManyToOne
@@ -38,8 +35,7 @@ public class TblCity implements Serializable {
     public TblCity() {
     }
 
-    public TblCity(String code, String cityKana, String city, TblPrefecture tblPrefecture) {
-        this.code = code;
+    public TblCity( String cityKana, String city, TblPrefecture tblPrefecture) {
         this.cityKana = cityKana;
         this.city = city;
         this.tblPrefecture = tblPrefecture;

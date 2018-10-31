@@ -12,19 +12,15 @@ public class SearchByPrefectureCodeResponse {
 	private String prefecture;
 	
 	@JsonProperty("city")
-	
 	private String city;
 	
 	@JsonProperty("prefecture_kana")
-	
 	private String prefectureKana;
 	
 	@JsonProperty("city_kana")
-	
 	private String cityKana;
 	
 	@JsonProperty("prefecture_code")
-	
 	private String prefectureCode;
 	
 	
