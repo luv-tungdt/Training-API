@@ -27,7 +27,7 @@ public class AreaServiceImplTest {
 
 	@Before
 	public void setUp() {
-		List<TblArea> areaList = new ArrayList<TblArea>();
+		List<TblArea> areaList = new ArrayList();
 		areaList.add(new TblArea());
 		when(areaRepoImpl.searchAreaByPostCode("4370222")).thenReturn(areaList);
 	}

@@ -17,65 +17,39 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class AreaRepositoryTest {
-	
+public class CityRepositoryImplTest {
+
+	@Autowired
+	private CityRepository cityRepository;
+
 	@Autowired
 	private TestEntityManager entityManager;
-	
-	@Autowired
-	private AreaRepository areaRepository;
-	
+
+
 	
 	@Test
-	public void searchAreaByPostCodeTest() {
+	public void searchCityByPrefectureCode() {
 		TblPrefecture tblPrefecture = new TblPrefecture();
 		tblPrefecture.setPrefectureKana("prefectureKana");
 		tblPrefecture.setPrefecture("prefecture");
 		tblPrefecture.setPrefectureCode("prefectureCode");
-		
+
+
 		entityManager.persist(tblPrefecture);
 		entityManager.flush();
-		
+
 		TblCity tblCity = new TblCity();
 		tblCity.setCode("1234");
 		tblCity.setCityKana("cityKana");
 		tblCity.setCity("city");
 		tblCity.setTblPrefecture(tblPrefecture);
-		
+
 		entityManager.persist(tblCity);
 		entityManager.flush();
+
+		List<TblCity> tblCity1 = cityRepository.searchCityByPrefectureCode(tblPrefecture.getPrefectureCode());
+
+        Assert.assertEquals(tblCity1.get(0).getTblPrefecture().getPrefectureCode(),tblPrefecture.getPrefectureCode());
 		
-		TblPost tblPost = new TblPost();
-		tblPost.setPostCode("postCode");
-		tblPost.setUpdateShow(1);
-		tblPost.setChangeReason(2);
-		tblPost.setMultiArea(3);
-		
-		entityManager.persist(tblPost);
-		entityManager.flush();
-		
-		TblOldPost tblOldPost = new TblOldPost();
-		tblOldPost.setOldPostCode("OldPostCode");
-		
-		entityManager.persist(tblOldPost);
-		entityManager.flush();
-		
-		TblArea tblArea = new TblArea();
-		tblArea.setAreaKana("areaKana");
-		tblArea.setArea("area");
-		tblArea.setTblCity(tblCity);
-		tblArea.setChomeArea(4);
-		tblArea.setKoazaArea(5);
-		tblArea.setMultiPostArea(6);
-		tblArea.setTblOldPost(tblOldPost);
-		tblArea.setTblPost(tblPost);
-		
-		entityManager.persist(tblArea);
-		entityManager.flush();
-		
-		List<TblArea> tblAreaList = areaRepository.searchAreaByPostCode(tblPost.getPostCode());
-		
-		Assert.assertEquals(tblAreaList.get(0).getArea(), tblArea.getArea());
 	}
-	
 }
