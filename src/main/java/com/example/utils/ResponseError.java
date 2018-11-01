@@ -32,16 +32,16 @@ public class ResponseError {
 		this.errorDescription = errorDescription;
 	}
 	
-	public static ResponseError error_1() {
+	public static ResponseError error_400() {
 		return new ResponseError("400",
 				"Thiếu thông số bắt buộc, giá trị không hợp lệ hoặc request không đúng định dạng");
 	}
 	
-	public static ResponseError error_2() {
+	public static ResponseError error_404() {
 		return new ResponseError("404", "Cố gắng thao tác một tài nguyên không tồn tại");
 	}
 	
-	public static ResponseError error_3() {
+	public static ResponseError error_500() {
 		return new ResponseError("500", "Một lỗi xảy ra ở phía máy chủ");
 	}
 	

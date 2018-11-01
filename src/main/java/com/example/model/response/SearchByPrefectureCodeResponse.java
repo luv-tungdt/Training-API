@@ -2,7 +2,11 @@ package com.example.model.response;
 
 import com.example.model.TblCity;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
+@ToString
+@EqualsAndHashCode
 public class SearchByPrefectureCodeResponse {
 	
 	@JsonProperty("code")
@@ -23,6 +27,19 @@ public class SearchByPrefectureCodeResponse {
 	@JsonProperty("prefecture_code")
 	private String prefectureCode;
 	
+	
+	public SearchByPrefectureCodeResponse() {
+	}
+	
+	public SearchByPrefectureCodeResponse(String code, String prefecture, String city, String prefectureKana,
+			String cityKana, String prefectureCode) {
+		this.code = code;
+		this.prefecture = prefecture;
+		this.city = city;
+		this.prefectureKana = prefectureKana;
+		this.cityKana = cityKana;
+		this.prefectureCode = prefectureCode;
+	}
 	
 	public SearchByPrefectureCodeResponse(TblCity tblCity) {
 		this.code = tblCity.getCode();

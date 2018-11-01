@@ -17,19 +17,15 @@ public class TblPost {
 	private int postId;
 	
 	@Column(name = "post_code")
-	
 	private String postCode;
 	
 	@Column(name = "update_show")
-	
 	private int updateShow;
 	
 	@Column(name = "change_reason")
-	
 	private int changeReason;
 	
 	@Column(name = "multi_area")
-	
 	private int multiArea;
 	
 	
