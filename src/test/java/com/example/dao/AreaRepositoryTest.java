@@ -23,11 +23,16 @@ public class AreaRepositoryTest {
 	private TestEntityManager entityManager;
 	
 	@Autowired
-	private AreaRepository areaRepository;
+	private AreaRepository sut;
 	
 	
+	/**
+	 * Test find list TblArea by PostCode
+	 */
 	@Test
 	public void searchAreaByPostCodeTest() {
+		//setup
+
 		TblPrefecture tblPrefecture = new TblPrefecture();
 		tblPrefecture.setPrefectureKana("prefectureKana");
 		tblPrefecture.setPrefecture("prefecture");
@@ -72,9 +77,11 @@ public class AreaRepositoryTest {
 		
 		entityManager.persist(tblArea);
 		entityManager.flush();
-		
-		List<TblArea> tblAreaList = areaRepository.searchAreaByPostCode(tblPost.getPostCode());
-		
+
+		//exercise
+		List<TblArea> tblAreaList = sut.searchAreaByPostCode(tblPost.getPostCode());
+
+		//verify
 		Assert.assertEquals(tblAreaList.get(0).getArea(), tblArea.getArea());
 	}
 	
